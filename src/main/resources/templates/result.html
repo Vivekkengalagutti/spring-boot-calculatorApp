@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Result</title>
+</head>
+<body>
+
+<h1>Calculation Result</h1>
+
+<!-- Show error if exists -->
+<p th:if="${error}" th:text="${error}" style="color:red;"></p>
+
+<!-- Show result -->
+<p><strong>Result:</strong> <span th:text="${result}"></span></p>
+<p><strong>Operation:</strong> <span th:text="${operation}"></span></p>
+
+<hr>
+
+<form action="/calculate" method="POST">
+
+    <input type="number" step="any" name="num1" th:value="${num1}" required>
+
+    <input type="number" step="any" name="num2" th:value="${num2}" required>
+
+    <button type="submit" name="operation" value="add">Add</button>
+    <button type="submit" name="operation" value="sub">Subtract</button>
+    <button type="submit" name="operation" value="mul">Multiply</button>
+    <button type="submit" name="operation" value="div">Divide</button>
+
+</form>
+
+</body>
+</html>
